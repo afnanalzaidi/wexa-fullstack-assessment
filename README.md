@@ -242,6 +242,10 @@ cypher/
 
 ---
 
+## Graph Data Model (Daigram)
+
+![CareerGraph Graph Data Model](screenshots/CareerGraph_Daigram.png)
+
 ## Environment Variables
 
 Database credentials are stored in environment variables and are not committed to the repository.
