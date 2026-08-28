@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiHome, FiBriefcase, FiTarget, FiBarChart2, FiUser, FiZap, FiX } from 'react-icons/fi';
+import { LuNetwork } from "react-icons/lu";
 
 const Sidebar = ({ candidate, activeTab, onTabChange, isMobileOpen, onClose }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -59,14 +60,14 @@ const Sidebar = ({ candidate, activeTab, onTabChange, isMobileOpen, onClose }) =
         <div className="p-3 sm:p-4 mt-[1px] border-b-2 border-slate-200">
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200 flex-shrink-0">
-              <FiZap className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+              <LuNetwork className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
             </div>
             <div className="min-w-0">
               <h1 className="text-base sm:text-xl font-extrabold text-slate-900 tracking-tight truncate">
                 Career Graph
               </h1>
-              <p className="text-[10px] sm:text-xs font-bold text-indigo-600 uppercase tracking-wider">
-                AI-Powered
+              <p className="text-[10px] font-bold text-indigo-600 uppercase tracking-wider">
+               Find Your Next Opportunity
               </p>
             </div>
           </div>

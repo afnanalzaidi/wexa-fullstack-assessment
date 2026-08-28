@@ -140,7 +140,7 @@ function App() {
         <main className="flex-1 w-full md:ml-0">
           <Header candidate={candidate} variant="minimal" />
 
-          <div className="p-3 sm:p-4 md:p-6">
+          <div className="p-3 sm:p-4 md:p-6 md:h-[650px] overflow-y-auto">
             <div className="max-w-7xl mx-auto">
               <button
                 onClick={goBack}
