@@ -1,24 +1,15 @@
 import React, { useState } from "react";
 import { useJobs } from "./hooks/useJobs";
 import Header from "./components/Header";
-import { JobCard } from "./components/JobCard";
 import Sidebar from "./components/Sidebar";
-import StatsCard from "./components/StatsCard";
-import SkillCard from "./components/SkillCard";
-import {
-  FiBriefcase,
-  FiTarget,
-  FiTrendingUp,
-  FiZap,
-  FiUser,
-  FiBarChart2,
-  FiMenu,
-  FiX,
-} from "react-icons/fi";
+
+import { FiTarget, FiTrendingUp } from "react-icons/fi";
 
 function App() {
   const {
     candidate,
+    candidateId,
+    setCandidateId,
     jobs,
     candidateSkills,
     skillOpportunities,
@@ -138,7 +129,12 @@ function App() {
         </div>
 
         <main className="flex-1 w-full md:ml-0">
-          <Header candidate={candidate} variant="minimal" />
+          <Header
+            candidate={candidate}
+            candidateId={candidateId}
+            setCandidateId={setCandidateId}
+            variant="minimal"
+          />
 
           <div className="p-3 sm:p-4 md:p-6 md:h-[calc(100vh-90px)] overflow-y-auto">
             <div className="max-w-7xl mx-auto">
@@ -499,8 +495,8 @@ function App() {
             {jobs.length > 4 && (
               <button
                 onClick={() => {
-                  setActiveTab("jobs"); 
-                  setIsMobileMenuOpen(false); 
+                  setActiveTab("jobs");
+                  setIsMobileMenuOpen(false);
                 }}
                 className="w-full text-center py-2.5 sm:py-3 text-xs sm:text-sm text-indigo-600 font-extrabold hover:text-indigo-800 transition bg-slate-50 rounded-xl border-2 border-dashed border-indigo-200 shadow-sm mt-2 sm:mt-4 hover:border-indigo-400 hover:bg-indigo-50"
               >
@@ -950,6 +946,8 @@ function App() {
       <main className="flex-1 w-full md:ml-0">
         <Header
           candidate={candidate}
+          candidateId={candidateId}
+          setCandidateId={setCandidateId}
           title={getPageTitle(activeTab).title}
           subtitle={getPageTitle(activeTab).subtitle}
           onMenuClick={toggleMobileMenu}

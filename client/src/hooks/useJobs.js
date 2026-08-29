@@ -16,6 +16,7 @@ export function useJobs() {
   const [skillGap, setSkillGap] = useState(null);
   const [detailsLoading, setDetailsLoading] = useState(false);
   const [detailsError, setDetailsError] = useState("");
+  const [candidateId, setCandidateId] = useState("candidate1");
 
   // Load initial data
   useEffect(() => {
@@ -24,9 +25,9 @@ export function useJobs() {
         setState(prev => ({ ...prev, loading: true, error: "" }));
 
         const [candidateRes, skillsRes, opportunitiesRes] = await Promise.all([
-          fetch(`${API_URL}/api/candidates/candidate1`),
-          fetch(`${API_URL}/api/candidates/candidate1/skills`),
-          fetch(`${API_URL}/api/skills/opportunities/candidate1`),
+          fetch(`${API_URL}/api/candidates/${candidateId}`),
+          fetch(`${API_URL}/api/candidates/${candidateId}/skills`),
+          fetch(`${API_URL}/api/skills/opportunities/${candidateId}`),
         ]);
 
         if (!candidateRes.ok) throw new Error("Failed to load recommendations");
@@ -59,7 +60,7 @@ export function useJobs() {
     }
 
     fetchData();
-  }, []);
+  }, [candidateId]);
 
   // Load skill gap for a job
   async function loadSkillGap(job) {
@@ -69,7 +70,7 @@ export function useJobs() {
       setSelectedJob(job);
       setSkillGap(null);
 
-      const response = await fetch(`${API_URL}/api/skill-gap/candidate1/${job.jobId}`);
+      const response = await fetch(`${API_URL}/api/skill-gap/${candidateId}/${job.jobId}`);
       
       if (!response.ok) {
         throw new Error(`Failed to load skill gap data (${response.status})`);
@@ -95,12 +96,14 @@ export function useJobs() {
   }
 
   return {
-    ...state,
-    selectedJob,
-    skillGap,
-    detailsLoading,
-    detailsError,
-    loadSkillGap,
-    goBack,
-  };
+  ...state,
+  candidateId,
+  setCandidateId,
+  selectedJob,
+  skillGap,
+  detailsLoading,
+  detailsError,
+  loadSkillGap,
+  goBack,
+};
 }
