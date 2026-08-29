@@ -62,11 +62,8 @@ function App() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50 flex items-center justify-center px-4">
         <div className="text-center">
-          <div className="relative mx-auto mb-6">
+          <div className="relative mx-auto mb-6 flex justify-center">
             <div className="h-16 w-16 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-600" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-6 w-6 rounded-full bg-indigo-600 animate-pulse" />
-            </div>
           </div>
           <h3 className="text-xl font-bold text-slate-800">
             Loading your dashboard...
