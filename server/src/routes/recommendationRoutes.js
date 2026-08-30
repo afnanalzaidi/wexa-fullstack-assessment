@@ -3,9 +3,6 @@ const recommendationController = require("../controllers/recommendationControlle
 
 const router = express.Router();
 
-router.get(
-  "/:candidateId",
-  recommendationController.getJobRecommendations
-);
+router.get("/:candidateId",recommendationController.getJobRecommendations);
 
 module.exports = router;
