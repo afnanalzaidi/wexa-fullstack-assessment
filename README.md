@@ -141,9 +141,9 @@ server/.env
 Add:
 
 ```env
-COGNODB_URI=your_cognodb_uri
+COGNODB_URI=uri
 COGNODB_USERNAME=cognodb
-COGNODB_PASSWORD=your_cognodb_password
+COGNODB_PASSWORD=congobdpasword
 ```
 
 ### 3. Install dependencies
